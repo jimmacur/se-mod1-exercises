@@ -3,7 +3,11 @@ class Student
                 :cookies
 
     def initialize(name)
-        @name = name
+        if !name.is_a?(String)
+            @name = 'Default Name Assigned'
+        else 
+            @name = name
+        end
         @cookies = []
     end
 
@@ -11,3 +15,4 @@ class Student
         @cookies.push(cookies)
     end
   end
+
