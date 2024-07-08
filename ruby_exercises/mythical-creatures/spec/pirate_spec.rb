@@ -39,13 +39,18 @@ RSpec.describe Pirate do
 
   it 'has a booty' do
     # create a pirate
+    pirate = Pirate.new('Steve')
+    expect(pirate.booty).to eq (0)
     # check that the pirate starts with 0 booty
   end
 
   it 'gets 100 booty for robbing a ship' do
     # create a pirate
+    pirate = Pirate.new('Steve')
     # rob some ships
+    5.times {pirate.robs_ships}
     # check that the pirate got 100 booty for each ship it robbed
+    expect(pirate.booty).to eq(500)
   end
 
 end
