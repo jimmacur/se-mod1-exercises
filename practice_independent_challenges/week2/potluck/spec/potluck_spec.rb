@@ -9,11 +9,10 @@ RSpec.describe Potluck do
         @summer_pizza = Dish.new("Summer Pizza", :appetizer)
         @roast_pork = Dish.new("Roast Pork", :entre)
         @candy_salad = Dish.new("Candy Salad", :dessert)
+        @bean_dip = Dish.new("Bean Dip", :appetizer)
     end
     
     describe 'initialize' do
-        
-         
         it 'can exist' do
             expect(@potluck).to be_an_instance_of(Potluck)
         end
@@ -62,6 +61,28 @@ RSpec.describe Potluck do
         end
     end
 
+    describe 'menu' do
+        it 'has a menu with all dishes that is a hash' do
+            @potluck.add_dish(@couscous_salad)
+            @potluck.add_dish(@summer_pizza)
+            @potluck.add_dish(@roast_pork)
+            @potluck.add_dish(@cocktail_meatballs)
+            @potluck.add_dish(@candy_salad)
+            @potluck.add_dish(@bean_dip)
 
+            expect(@potluck.menu).to be_a(Hash)
+        end
+
+        it 'tells the ratio of dishes in a category to the total' do
+            @potluck.add_dish(@couscous_salad)
+            @potluck.add_dish(@summer_pizza)
+            @potluck.add_dish(@roast_pork)
+            @potluck.add_dish(@cocktail_meatballs)
+            @potluck.add_dish(@candy_salad)
+            @potluck.add_dish(@bean_dip)
+
+            expect(@potluck.ratio(:appetizer)).to eq(50.0)
+        end
+    end
 end
 
