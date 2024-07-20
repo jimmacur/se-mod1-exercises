@@ -5,7 +5,7 @@ RSpec.describe Player do
         @player = Player.new({name: "Luka Modric", position: "midfielder"})    
     end
 
-    describe 'instantiate' do
+    describe 'initialize' do
         it 'can exist' do
             expect(@player).to be_an_instance_of Player
         end
