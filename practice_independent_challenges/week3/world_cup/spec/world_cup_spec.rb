@@ -16,12 +16,23 @@ RSpec.describe WorldCup do
         @croatia.add_player(@modric)
         @croatia.add_player(@vida)
 
-        @world_cup = WorldCup.new(2018, [france, croatia]) 
+        @world_cup = WorldCup.new(2018, [@france, @croatia]) 
     end
 
     describe '#initialize' do
         it 'can exist' do
             expect(@world_cup).to be_an_instance_of WorldCup
+        end
+
+        it 'has attributes'do
+            expect(@world_cup.year).to eq 2018
+            expect(@world_cup.teams).to eq [@france, @croatia]
+        end
+    end
+
+    describe '#sorting' do
+        it 'can sort active players by position' do
+            expect(@world_cup.active_players_by_position("midfielder")).to eq[@pogbam, @modric]
         end
     end
 end
