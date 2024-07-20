@@ -4,7 +4,7 @@ class Team
     def initialize(country)
         @country = country
         @eliminated = false
-        @player = []
+        @players = []
     end
 
     def eliminated?
@@ -14,4 +14,10 @@ class Team
     def eliminated
         @eliminated = true
     end
+
+    def add_player(player)
+        @players << player
+    end
+
+    
 end
