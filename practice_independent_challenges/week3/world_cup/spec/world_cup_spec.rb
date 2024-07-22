@@ -45,6 +45,8 @@ RSpec.describe WorldCup do
 
         it 'can list all players by position' do
             expect(@world_cup.all_players_by_position).to be_a Hash
+
+            p @world_cup.all_players_by_position
         end
     end
 end

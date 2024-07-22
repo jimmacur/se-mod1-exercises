@@ -50,6 +50,6 @@ class WorldCup
         end
       
         players_by_position
-      end
+    end
     
 end
