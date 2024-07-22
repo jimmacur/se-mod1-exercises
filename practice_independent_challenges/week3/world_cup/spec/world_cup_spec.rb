@@ -32,7 +32,15 @@ RSpec.describe WorldCup do
 
     describe '#sorting' do
         it 'can sort active players by position' do
-            expect(@world_cup.active_players_by_position("midfielder")).to eq[@pogbam, @modric]
+            expect(@world_cup.active_players_by_position("midfielder")).to eq [@pogba, @modric]
+        end
+
+        it 'can remove players when they are no longer active' do
+            expect(@world_cup.active_players_by_position("midfielder")).to eq [@pogba, @modric]
+
+            @croatia.eliminated
+
+            expect(@world_cup.active_players_by_position("midfielder")).to eq [@pogba]
         end
     end
 end
