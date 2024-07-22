@@ -42,5 +42,9 @@ RSpec.describe WorldCup do
 
             expect(@world_cup.active_players_by_position("midfielder")).to eq [@pogba]
         end
+
+        it 'can list all players by position' do
+            expect(@world_cup.all_players_by_position).to be_a Hash
+        end
     end
 end
