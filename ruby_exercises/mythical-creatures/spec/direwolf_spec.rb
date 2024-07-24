@@ -1,6 +1,10 @@
 require './spec/spec_helper'
 require './lib/direwolf'
 
+RSpec.configure do |config|
+  config.formatter = :documentation
+end
+
 RSpec.describe Direwolf do
   it 'has a name' do
     wolf = Direwolf.new('Nymeria')
